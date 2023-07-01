@@ -24,10 +24,10 @@ export default {
   setup() {
     const store = useStore();
 
-    const listaFavoritos = computed(() => store.state.listaFavoritos);
+    const listaFavoritos = computed(() => store.state.usuario.listaFavoritos);
 
     function removeFavorito(idUsuario) {
-      store.dispatch("removeFavorito", idUsuario);
+      store.dispatch("usuario/removeFavorito", idUsuario);
     }
 
     return {

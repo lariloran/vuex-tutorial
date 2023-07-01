@@ -13,13 +13,15 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed } from "vue"; 
+import { computed } from "vue";
 
 export default {
   setup() {
     const store = useStore();
 
-    const totalFavoritos = computed(() => store.getters.totalFavoritos);
+    const totalFavoritos = computed(
+      () => store.getters["usuario/totalFavoritos"]
+    );
 
     return { totalFavoritos };
   },

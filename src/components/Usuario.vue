@@ -38,7 +38,7 @@ export default {
       emit("removeSelecionado", idUsuario);
     }
     function verificaFavorito(idUsuario) {
-      return store.getters.isFavorito(idUsuario);
+      return store.getters["usuario/isFavorito"](idUsuario);
     }
     return { mudarFavorito, favorito, verificaFavorito };
   },
