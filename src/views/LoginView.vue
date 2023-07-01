@@ -1,12 +1,11 @@
 <template>
   <div class="login">
     <div class="login-form">
-      <h2>Login</h2>
       <form @submit.prevent="login">
-        <label for="username">Username:</label>
+        <label for="username">Login:</label>
         <input type="text" id="username" v-model="username" required />
 
-        <label for="password">Password:</label>
+        <label for="password">Senha:</label>
         <input type="password" id="password" v-model="password" required />
 
         <button type="submit">Login</button>
