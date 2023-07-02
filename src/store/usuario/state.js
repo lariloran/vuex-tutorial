@@ -1,5 +1,5 @@
 export default {
   listaPessoas: [],
   listaFavoritos: [],
-  logado: false,
+  logado: true,
 };
