@@ -54,7 +54,7 @@ export default {
 
 <style scoped>
 .login {
-  background: #ffffe0;
+  background: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
