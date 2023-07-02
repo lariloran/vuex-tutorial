@@ -2,13 +2,22 @@
   <div class="login">
     <div class="login-form">
       <form @submit.prevent="login">
-        <label for="username">Login:</label>
-        <input type="text" id="username" v-model="username" required />
+        <input
+          type="text"
+          id="username"
+          v-model="username"
+          placeholder="Email ou Usuário"
+        />
 
-        <label for="password">Senha:</label>
-        <input type="password" id="password" v-model="password" required />
+        <input
+          type="password"
+          id="password"
+          v-model="password"
+          placeholder="Senha"
+          required
+        />
 
-        <button type="submit">Login</button>
+        <button type="submit" @click="validaUsuario">Login</button>
       </form>
     </div>
     <div class="divider"></div>
@@ -19,28 +28,33 @@
 </template>
 
 <script>
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 export default {
-  data() {
+  setup() {
+    const store = useStore();
+    const router = useRouter();
+
+    function validaUsuario() {
+      if (this.username === "rafael" && this.password === "123") {
+        store.dispatch("usuario/logar", true);
+        router.push("/");
+      } else {
+        return false;
+      }
+    }
     return {
       username: "",
       password: "",
+      validaUsuario,
     };
-  },
-  methods: {
-    login() {
-      // Implemente sua lógica de autenticação aqui
-      console.log("Usuário:", this.username);
-      console.log("Senha:", this.password);
-
-      // Redirecione para a página principal após o login bem-sucedido
-      // this.$router.push('/pagina-principal');
-    },
   },
 };
 </script>
 
 <style scoped>
 .login {
+  background: #ffffe0;
   display: flex;
   align-items: center;
   justify-content: center;

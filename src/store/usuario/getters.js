@@ -5,4 +5,7 @@ export default {
   isFavorito: (state) => (id) => {
     return state.listaFavoritos.some((x) => x.id === id);
   },
+  isLogado(state) {
+    return state.logado;
+  },
 };

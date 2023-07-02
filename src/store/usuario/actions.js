@@ -1,6 +1,6 @@
 import { pessoas } from "../mutations-types";
 
-const { ADD_PESSOAS, ADD_FAVORITO, REMOVER_FAVORITO } = pessoas;
+const { ADD_PESSOAS, ADD_FAVORITO, REMOVER_FAVORITO, LOGAR } = pessoas;
 
 export default {
   async adicionaPessoas({ commit }, payload) {
@@ -15,5 +15,9 @@ export default {
 
   removeFavorito({ commit }, payload) {
     commit(REMOVER_FAVORITO, payload);
+  },
+
+  logar({ commit }, payload) {
+    commit(LOGAR, payload);
   },
 };

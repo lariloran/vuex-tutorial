@@ -1,4 +1,4 @@
-<template>
+<template">
   <nav class="nav">
     <ul>
       <li><router-link to="/">Home</router-link></li>

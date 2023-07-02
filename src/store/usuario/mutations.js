@@ -9,4 +9,7 @@ export default {
   ADD_PESSOAS(state, payload) {
     state.listaPessoas = payload;
   },
+  LOGAR(state, payload) {
+    state.logado = payload;
+  },
 };
