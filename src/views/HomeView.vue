@@ -13,7 +13,7 @@
         </span>
         <div class="navbar-menu-logout">
           <ul class="navbar-menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="#">Início</a></li>
             <li><a href="#">Matrículas</a></li>
             <li><a href="#">Requisições</a></li>
             <li><a href="#">Relatórios</a></li>
