@@ -38,7 +38,7 @@ export default {
     function validaUsuario() {
       if (this.username === "rafael" && this.password === "123") {
         store.dispatch("usuario/logar", true);
-        router.push("/");
+        router.push("/home");
       } else {
         return false;
       }
