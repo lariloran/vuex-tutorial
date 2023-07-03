@@ -28,8 +28,8 @@
 
 <style scoped>
 footer {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 0px;
     width: 100%;
     margin-top: 0;
     border-top: solid 0.5px rgba(0, 0, 0, 0.2);

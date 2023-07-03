@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import AtividadesView from "../views/AtividadesView.vue";
+import FormularioNovo from "../components/FormularioNovo.vue";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/atividades",
     name: "Atividades",
     component: AtividadesView,
+  },
+  {
+    path: "/cadastrarAtividade",
+    name: "Formulario",
+    component: FormularioNovo,
   },
   {
     path: "/Favoritos",

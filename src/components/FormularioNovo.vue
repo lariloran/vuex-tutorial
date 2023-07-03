@@ -1,4 +1,5 @@
 <template>
+  <NavbarNovo />
   <div class="container">
     <div class="centered-content">
       <div class="panel left-panel">
@@ -79,6 +80,7 @@
         </div>
       </div>
     </div>
+    <Rodape />
   </div>
 </template>
 
@@ -131,6 +133,7 @@ export default {
 <style scoped>
 .container {
   margin-top: 40px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: center;
   align-items: flex-start; /* Alterado para flex-start para alinhar o conteúdo no topo */
