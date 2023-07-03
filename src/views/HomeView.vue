@@ -1,28 +1,34 @@
 <template>
   <div>
     <NavbarNovo />
-    <div class="container">
-      <div class="welcome-message">
-        <h1>Bem-vindo ao Sistema de Registro de Atividades Complementares</h1>
-      </div>
-      <div class="content">
-        <div class="info">
-          <p>
-            <span class="label">Aluno:</span> RAFAEL LARILORAN COSTA RODRIGUES
-          </p>
-          <p><span class="label">Matrícula:</span> 2022005526</p>
-          <p><span class="label">E-mail:</span> lariloran2@gmail.com</p>
-          <p>
-            <span class="label">Curso:</span> Tecnologia em Sistemas para
-            Internet (SI-2019)
-          </p>
-        </div>
+    <div class="main-container">
+      <div class="left-panel">
         <div class="photo-container">
           <img
-            src="../assets/perfil.jpg"
+            src="../assets/open-book.png"
             alt="Foto do aluno"
             class="student-photo"
           />
+        </div>
+      </div>
+      <div class="right-panel">
+        <div class="welcome-message">
+          <h1>Bem-vindo ao Sistema de Registro de Atividades Complementares</h1>
+        </div>
+        <div class="info">
+          <p class="paragrafo">
+            <span class="label">Aluno:</span> RAFAEL LARILORAN COSTA RODRIGUES
+          </p>
+          <p class="paragrafo">
+            <span class="label">Matrícula:</span> 2022005526
+          </p>
+          <p class="paragrafo">
+            <span class="label">E-mail:</span> lariloran2@gmail.com
+          </p>
+          <p class="paragrafo">
+            <span class="label">Curso:</span> Tecnologia em Sistemas para
+            Internet (SI-2019)
+          </p>
         </div>
       </div>
     </div>
@@ -30,10 +36,11 @@
 </template>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  justify-items: center;
   align-items: center;
   height: 80vh;
   box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
@@ -41,47 +48,53 @@
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 20px;
-  border: 1px solid #278236;
 }
 
-.welcome-message {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #278236;
-}
-
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.photo-container {
+.left-panel {
+  background-color: white;
+  color: white;
+  padding: 20px;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
   align-items: flex-start;
 }
 
+.right-panel {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.photo-container {
+  margin-bottom: 20px;
+}
+
 .student-photo {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 50%;
 }
 
 .info {
   display: grid;
   gap: 10px;
+  align-self: flex-start;
 }
 
 .label {
   font-weight: bold;
+  color: #278236;
 }
 
-.info p {
-  margin: 0;
+.paragrafo {
+  color: #555;
+}
+
+.welcome-message {
+  text-align: center;
+  color: #278236;
 }
 
 /* Estilos adicionados */

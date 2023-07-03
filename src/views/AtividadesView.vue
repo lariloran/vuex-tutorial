@@ -137,7 +137,7 @@ export default {
 }
 
 .table {
-  width: 100%;
+  width: 91.5%;
   margin-top: 20px;
   border-collapse: collapse;
   text-align: center;
