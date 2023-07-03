@@ -5,7 +5,7 @@
         <span class="logo">
           <span class="s">S</span>
           <span class="i">I</span>
-          <span class="s">S</span>
+          <span class="s2">S</span>
           <span class="t">T</span>
           <span class="r">R</span>
           <span class="a">A</span>
@@ -13,10 +13,10 @@
         </span>
         <div class="navbar-menu-logout">
           <ul class="navbar-menu">
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Matrículas</a></li>
-            <li><a href="#">Requisições</a></li>
-            <li><a href="#">Relatórios</a></li>
+            <li><router-link to="/" class="navbar-menu-link">Início</router-link></li>
+            <li><router-link to="/atividades" class="navbar-menu-link">Atividades Complementares</router-link></li>
+            <li><router-link to="/requerimentos" class="navbar-menu-link">Requerimentos</router-link></li>
+            <li><router-link to="/relatorios" class="navbar-menu-link">Relatórios</router-link></li>
           </ul>
           <div class="logout-icon" @click="logout">
             <svg
@@ -41,8 +41,12 @@
 
 <script>
 import { useStore } from "vuex";
+import { RouterLink } from "vue-router";
 
 export default {
+  components: {
+    RouterLink,
+  },
   setup() {
     const store = useStore();
 
@@ -89,6 +93,9 @@ export default {
   color: green;
 }
 
+.logo .s2 {
+  color: blue;
+}
 .logo .i {
   color: orange;
 }
@@ -127,7 +134,7 @@ export default {
   margin-right: 10px;
 }
 
-.navbar-menu li a {
+.navbar-menu li .navbar-menu-link {
   color: #555;
   text-decoration: none;
   padding: 5px;
@@ -137,7 +144,7 @@ export default {
   transition: color 0.3s;
 }
 
-.navbar-menu li a:hover {
+.navbar-menu li .navbar-menu-link:hover {
   color: #333;
 }
 
@@ -152,5 +159,28 @@ export default {
   width: 20px;
   height: 20px;
   vertical-align: middle;
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  text-align: center; /* Centraliza o conteúdo da tabela */
+}
+
+.table th.header {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #555; /* Define a mesma cor de letra dos itens do navbar */
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 </style>
