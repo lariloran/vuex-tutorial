@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+  <Rodape />
 </template>
 
 <style scoped>
