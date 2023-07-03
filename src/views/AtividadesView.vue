@@ -7,7 +7,7 @@
       <button class="novo-btn" @click="mostrarFormularioNovo">Novo</button>
     </div>
 
-    <table class="table" v-if="exibirTabela">
+    <table class="table" v-if="exibirTabela" style="max-width: 1400px; margin: 0 auto;">
       <thead>
         <tr>
           <th class="header">Aluno</th>
@@ -74,7 +74,6 @@ export default {
     },
     adicionarItem(novoItem) {
       this.itens.push(novoItem);
-
       this.exibirFormularioNovo = false;
       this.exibirTabela = true;
       this.adicionandoItem = false;
@@ -94,13 +93,13 @@ export default {
 .table th,
 .table td {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #278236;
 }
 
 .table th {
   background-color: #f2f2f2;
   font-weight: bold;
-  color: #555;
+  color: #278236;
 }
 
 .novo-container {

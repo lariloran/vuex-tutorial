@@ -35,10 +35,20 @@
             <div class="form-group">
               <label for="atividade">Atividade</label>
               <select id="atividade" v-model="atividade" required>
-                <option value="" disabled selected>
-                  Selecione uma atividade
+                <option value="" selected>Selecione uma atividade</option>
+                <option value="Participação em evento">
+                  Participação em evento (congresso, seminário, simpósio,
+                  workshop, palestra, conferência, feira) e similar, de natureza
+                  acadêmica ou profissional
                 </option>
-                <!-- Opções da atividade aqui -->
+                <option value="Participação em curso">
+                  Participação em curso (oficina, minicurso, extensão,
+                  capacitação, treinamento) e similar, de natureza acadêmica ou
+                  profissional.
+                </option>
+                <option value="Participação em curso de língua estrangeira">
+                  Participação em curso de língua estrangeira
+                </option>
               </select>
             </div>
             <div class="form-group">
@@ -50,6 +60,16 @@
                 através de um único arquivo PDF.
               </p>
             </div>
+            <div class="form-group">
+              <label for="check-declaracao" class="checkbox-label">
+                <input type="checkbox" id="check-declaracao" required />
+                <i class="fas fa-check"></i> Declaro que todas as informações
+                descritas neste formulário são verídicas, e me comprometo a
+                apresentar os documentos originais a qualquer momento que forem
+                solicitados.
+              </label>
+            </div>
+
             <div class="button-wrapper">
               <button type="submit" class="form-button">
                 <i class="fas fa-save"></i> Salvar
@@ -65,17 +85,23 @@
 <script>
 export default {
   data() {
+    const dataAtual = new Date();
+    const dia = dataAtual.getDate();
+    const mes = dataAtual.getMonth() + 1; // Os meses são indexados a partir de 0, então somamos 1 para obter o mês correto
+    const ano = dataAtual.getFullYear();
+
+    // Formata a data no formato "dd/mm/aaaa"
+    const dataFormatada = `${dia < 10 ? "0" + dia : dia}/${
+      mes < 10 ? "0" + mes : mes
+    }/${ano}`;
+
     return {
       titulo: "",
       ch: "",
       grupo: "",
       atividade: "",
       arquivo: null,
-      aluno: {
-        nome: "Rafael",
-        telefone: "1234567890",
-        matricula: "20210001",
-      },
+      dataFormatada,
     };
   },
   methods: {
@@ -86,21 +112,17 @@ export default {
         grupo: this.grupo,
         atividade: this.atividade,
         arquivo: this.arquivo,
-        aluno: this.aluno,
+        aluno: "RAFAEL LARILORAN",
+        status: "Em análise",
+        data: this.dataFormatada, // Adiciona a data formatada ao objeto novoItem
       };
 
       this.$emit("adicionar", novoItem);
-
       this.titulo = "";
       this.ch = "";
       this.grupo = "";
       this.atividade = "";
       this.arquivo = null;
-      this.aluno = {
-        nome: "",
-        telefone: "",
-        matricula: "",
-      };
     },
   },
 };
@@ -189,5 +211,20 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.checkbox-label {
+  margin-left: -259px;
+  display: flex;
+  align-items: center;
+  color: #278236;
+  font-weight: bold;
+}
+
+.checkbox-label .fas.fa-check {
+  margin-right: -200px;
+}
+
+.checkbox-label .check-text {
+  flex-grow: 1;
 }
 </style>
