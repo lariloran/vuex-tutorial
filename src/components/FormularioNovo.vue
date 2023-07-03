@@ -4,9 +4,9 @@
       <div class="panel left-panel">
         <div class="form-wrapper">
           <form @submit.prevent="adicionar" class="form">
-            <h1>Cadastro de Atividade Complementar</h1>
+            <h2 class="header">Cadastro de Atividade Complementar</h2>
             <div class="form-group">
-              <label for="titulo">Título:</label>
+              <label for="titulo">Título</label>
               <input
                 id="titulo"
                 v-model="titulo"
@@ -14,38 +14,48 @@
                 placeholder="Título"
               />
             </div>
+
             <div class="form-group">
-              <label for="grupo">Grupo:</label>
+              <label for="ch">Carga Horária</label>
+              <input
+                id="ch"
+                v-model="ch"
+                required
+                placeholder="Carga Horária"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="grupo">Grupo</label>
               <select id="grupo" v-model="grupo" required>
-                <option value="" disabled selected>Selecione</option>
+                <option value="" disabled selected>Selecione um grupo</option>
                 <option value="atividades">Atividades</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="atividade">Atividade:</label>
+              <label for="atividade">Atividade</label>
               <select id="atividade" v-model="atividade" required>
+                <option value="" disabled selected>
+                  Selecione uma atividade
+                </option>
                 <!-- Opções da atividade aqui -->
               </select>
             </div>
             <div class="form-group">
-              <label for="arquivo">Arquivo:</label>
+              <label for="arquivo">Arquivo</label>
               <input type="file" id="arquivo" required />
+              <p class="file-info">
+                Caso o certificado/documento tenha informações frente e verso,
+                observe que é necessário digitalizar ambos os lados e submetê-lo
+                através de um único arquivo PDF.
+              </p>
             </div>
-            <button type="submit" class="form-button">Salvar</button>
+            <div class="button-wrapper">
+              <button type="submit" class="form-button">
+                <i class="fas fa-save"></i> Salvar
+              </button>
+            </div>
           </form>
-        </div>
-      </div>
-      <div class="panel right-panel">
-        <div class="user-info">
-          <div class="user-icon">
-            <i class="fa fa-user"></i>
-          </div>
-          <div class="user-details">
-            <div class="user-name">
-              <i class="fa fa-user"></i> Aluno: Rafael
-            </div>
-            <div class="user-phone">Telefone: 1234567890</div>
-          </div>
         </div>
       </div>
     </div>
@@ -57,16 +67,22 @@ export default {
   data() {
     return {
       titulo: "",
+      ch: "",
       grupo: "",
       atividade: "",
       arquivo: null,
-      aluno: "",
+      aluno: {
+        nome: "Rafael",
+        telefone: "1234567890",
+        matricula: "20210001",
+      },
     };
   },
   methods: {
     adicionar() {
       const novoItem = {
         titulo: this.titulo,
+        ch: this.ch,
         grupo: this.grupo,
         atividade: this.atividade,
         arquivo: this.arquivo,
@@ -76,10 +92,15 @@ export default {
       this.$emit("adicionar", novoItem);
 
       this.titulo = "";
+      this.ch = "";
       this.grupo = "";
       this.atividade = "";
       this.arquivo = null;
-      this.aluno = "";
+      this.aluno = {
+        nome: "",
+        telefone: "",
+        matricula: "",
+      };
     },
   },
 };
@@ -106,7 +127,7 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color: white;
   border-radius: 8px;
   padding: 20px;
   box-sizing: border-box;
@@ -116,18 +137,13 @@ export default {
   margin-right: 10px; /* Adicionado margem direita para criar espaço entre as divs */
 }
 
-.right-panel {
-  background-color: green;
-  color: white;
-}
-
 .form-group {
   margin-bottom: 10px;
 }
 
 label {
   margin-bottom: 5px;
-  color: ForestGreen;
+  color: #278236;
 }
 
 input,
@@ -139,12 +155,17 @@ select {
   box-sizing: border-box;
 }
 
-button {
-  margin-top: 10px;
-  padding: 8px 16px;
+.button-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
-button[type="submit"] {
+.form-button {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
   background-color: #278236;
   color: white;
   font-weight: bold;
@@ -152,26 +173,21 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-.user-info {
-  display: flex;
-  align-items: flex-start;
-}
-
-.user-icon {
-  font-size: 24px;
-  margin-right: 10px;
-}
-
-.user-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.user-name {
-  font-weight: bold;
-}
-
-.user-phone {
+.file-info {
   font-size: 14px;
+  color: #666;
+}
+
+.header {
+  font-size: 25px;
+  color: #278236;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
