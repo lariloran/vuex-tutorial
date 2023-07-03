@@ -53,7 +53,7 @@ export default {
           data: "02/07/2023",
         },
         {
-          aluno: "EDUARDO DOVIGI",
+          aluno: "RAFAEL LARILORAN",
           titulo: "Curso Alura",
           atividade: "Estágio",
           ch: "130",
