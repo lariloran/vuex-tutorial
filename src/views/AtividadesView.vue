@@ -1,4 +1,5 @@
 <template>
+  <NavbarNovo />
   <table class="table">
     <thead>
       <tr>
