@@ -3,10 +3,11 @@
     <NavbarNovo />
     <FormularioNovo v-if="exibirFormularioNovo" @adicionar="adicionarItem" />
 
-    <div class="novo-container">
+    <div class="novo-container" v-if="!adicionandoItem">
       <button class="novo-btn" @click="mostrarFormularioNovo">Novo</button>
     </div>
-    <table class="table">
+
+    <table class="table" v-if="exibirTabela">
       <thead>
         <tr>
           <th class="header">Aluno</th>
@@ -28,7 +29,6 @@
         </tr>
       </tbody>
     </table>
-
   </div>
 </template>
 
@@ -62,16 +62,22 @@ export default {
         },
       ],
       exibirFormularioNovo: false,
+      exibirTabela: true,
+      adicionandoItem: false,
     };
   },
   methods: {
     mostrarFormularioNovo() {
       this.exibirFormularioNovo = true;
+      this.exibirTabela = false;
+      this.adicionandoItem = true;
     },
     adicionarItem(novoItem) {
       this.itens.push(novoItem);
 
       this.exibirFormularioNovo = false;
+      this.exibirTabela = true;
+      this.adicionandoItem = false;
     },
   },
 };
