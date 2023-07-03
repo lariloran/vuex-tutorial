@@ -7,19 +7,23 @@
       <button class="novo-btn" @click="mostrarFormularioNovo">Novo</button>
     </div>
 
-    <table class="table" v-if="exibirTabela" style="max-width: 1400px; margin: 0 auto;">
+    <table
+      class="table"
+      v-if="exibirTabela"
+      style="max-width: 1400px; margin: 0 auto"
+    >
       <thead>
         <tr>
-          <th class="header">Aluno</th>
-          <th class="header">Título</th>
-          <th class="header">Atividade</th>
-          <th class="header">CH</th>
-          <th class="header">Status</th>
-          <th class="header">Data</th>
+          <th class="header" @click="ordenarPor('aluno')">Aluno</th>
+          <th class="header" @click="ordenarPor('titulo')">Título</th>
+          <th class="header" @click="ordenarPor('atividade')">Atividade</th>
+          <th class="header" @click="ordenarPor('ch')">CH</th>
+          <th class="header" @click="ordenarPor('status')">Status</th>
+          <th class="header" @click="ordenarPor('data')">Data</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in itens" :key="index">
+        <tr v-for="(item, index) in itensOrdenados" :key="index">
           <td>{{ item.aluno }}</td>
           <td>{{ item.titulo }}</td>
           <td>{{ item.atividade }}</td>
@@ -64,7 +68,14 @@ export default {
       exibirFormularioNovo: false,
       exibirTabela: true,
       adicionandoItem: false,
+      colunaOrdenada: null,
+      ordemAscendente: true,
     };
+  },
+  computed: {
+    itensOrdenados() {
+      return this.ordenarItens();
+    },
   },
   methods: {
     mostrarFormularioNovo() {
@@ -77,6 +88,35 @@ export default {
       this.exibirFormularioNovo = false;
       this.exibirTabela = true;
       this.adicionandoItem = false;
+    },
+    ordenarPor(coluna) {
+      if (this.colunaOrdenada === coluna) {
+        this.ordemAscendente = !this.ordemAscendente;
+      } else {
+        this.colunaOrdenada = coluna;
+        this.ordemAscendente = true;
+      }
+    },
+    ordenarItens() {
+      const itensOrdenados = [...this.itens];
+      const coluna = this.colunaOrdenada;
+
+      if (coluna) {
+        itensOrdenados.sort((a, b) => {
+          const campoA = a[coluna];
+          const campoB = b[coluna];
+
+          if (campoA < campoB) {
+            return this.ordemAscendente ? -1 : 1;
+          }
+          if (campoA > campoB) {
+            return this.ordemAscendente ? 1 : -1;
+          }
+          return 0;
+        });
+      }
+
+      return itensOrdenados;
     },
   },
 };
@@ -94,6 +134,7 @@ export default {
 .table td {
   padding: 10px;
   border: 1px solid #278236;
+  cursor: pointer;
 }
 
 .table th {
