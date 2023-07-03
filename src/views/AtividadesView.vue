@@ -3,9 +3,9 @@
     <NavbarNovo />
     <FormularioNovo v-if="exibirFormularioNovo" @adicionar="adicionarItem" />
 
-    <div class="novo-container" v-if="!adicionandoItem">
-      <button class="novo-btn" @click="mostrarFormularioNovo">Novo</button>
-    </div>
+    <button class="novo-btn login-button" @click="mostrarFormularioNovo">
+      Novo
+    </button>
 
     <table
       class="table"
@@ -123,6 +123,19 @@ export default {
 </script>
 
 <style scoped>
+.novo-btn {
+  margin-right: 10px;
+  margin-left: 59px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  background-color: #278236;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
 .table {
   width: 100%;
   margin-top: 20px;
@@ -144,8 +157,7 @@ export default {
 }
 
 .novo-container {
-  display: flex;
-  justify-content: flex-end;
+  float: left;
   margin-bottom: 10px;
 }
 
