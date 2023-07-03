@@ -1,7 +1,7 @@
 <template>
-  <div class="login">
+  <div class="login" @submit.prevent="validaUsuario()">
     <div class="login-form">
-      <form @submit.prevent="validaUsuario">
+      <form>
         <label for="username"></label>
         <input
           type="text"
@@ -18,7 +18,9 @@
           required
         />
 
-        <button type="submit" class="login-button">Entrar</button>
+        <button type="submit" class="login-button" @click="validaUsuario()">
+          Entrar
+        </button>
         <button type="button" @click="forgotPassword" class="forgot-password">
           Esqueceu a senha?
         </button>
@@ -32,11 +34,10 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+//import { useStore } from "vuex";
 
 export default {
-  data() {
+  setup() {
     return {
       username: "",
       password: "",
@@ -44,15 +45,8 @@ export default {
   },
   methods: {
     validaUsuario() {
-      const store = useStore();
-      const router = useRouter();
-
-      if (this.username === "rafael" && this.password === "123") {
-        store.dispatch("usuario/logar", true);
-        router.push("/home");
-      } else {
-        return false;
-      }
+      //const store = useStore();
+      this.$router.push("/home");
     },
     forgotPassword() {
       console.log(

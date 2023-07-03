@@ -15,7 +15,7 @@ export default {
     }
 
     function logout() {
-        router.push("/");
+      router.push("/");
       // Implemente sua lógica de logout aqui
       // Redirecione para a página de login ou execute outras ações necessárias
     }
@@ -25,45 +25,61 @@ export default {
 };
 </script>
 <template setup>
-    <div>
-      <nav class="navbar" v-if="isLogado()">
-        <div class="navbar-content">
-          <span class="logo">
-            <span class="s">S</span>
-            <span class="i">I</span>
-            <span class="s2">S</span>
-            <span class="t">T</span>
-            <span class="r">R</span>
-            <span class="a">A</span>
-            <span class="c">C</span>
-          </span>
-          <div class="navbar-menu-logout">
-            <ul class="navbar-menu">
-              <li><router-link to="/home" class="navbar-menu-link">Início</router-link></li>
-              <li><router-link to="/atividades" class="navbar-menu-link">Atividades Complementares</router-link></li>
-              <li><router-link to="/requerimentos" class="navbar-menu-link">Requerimentos</router-link></li>
-              <li><router-link to="/relatorios" class="navbar-menu-link">Relatórios</router-link></li>
-            </ul>
-            <div class="logout-icon" @click="logout">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="logout-icon-svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+  <div>
+    <nav class="navbar" v-if="isLogado()">
+      <div class="navbar-content">
+        <span class="logo">
+          <span class="s">S</span>
+          <span class="i">I</span>
+          <span class="s2">S</span>
+          <span class="t">T</span>
+          <span class="r">R</span>
+          <span class="a">A</span>
+          <span class="c">C</span>
+        </span>
+        <div class="navbar-menu-logout">
+          <ul class="navbar-menu">
+            <li>
+              <router-link to="/home" class="navbar-menu-link"
+                >Início</router-link
               >
-                <path d="M10 17l5-5-5-5"></path>
-                <path d="M15 12h-9"></path>
-              </svg>
-            </div>
+            </li>
+            <li>
+              <router-link to="/atividades" class="navbar-menu-link"
+                >Atividades Complementares</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/home" class="navbar-menu-link"
+                >Requerimentos</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/home" class="navbar-menu-link"
+                >Relatórios</router-link
+              >
+            </li>
+          </ul>
+          <div class="logout-icon" @click="logout">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="logout-icon-svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M10 17l5-5-5-5"></path>
+              <path d="M15 12h-9"></path>
+            </svg>
           </div>
         </div>
-      </nav>
-    </div>
-  </template>
+      </div>
+    </nav>
+  </div>
+</template>
 
 <style scoped>
 .navbar {
