@@ -62,7 +62,7 @@
 
 .right-panel {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -80,22 +80,21 @@
 
 .info {
   display: grid;
-  gap: 10px;
-  align-self: flex-start;
+  margin-bottom: 150px;
 }
 
 .label {
   font-weight: bold;
   color: #278236;
 }
-
 .paragrafo {
   color: #555;
+  margin-bottom: -9px; /* Ajuste o valor conforme desejado */
 }
-
 .welcome-message {
   text-align: center;
   color: #278236;
+  margin-bottom: 90px;
 }
 
 /* Estilos adicionados */

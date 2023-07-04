@@ -31,6 +31,7 @@ footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
+    height: 80px;
     margin-top: 0;
     border-top: solid 0.5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 7px 0  rgba(255, 0, 0, 0.4);

@@ -38,14 +38,18 @@
     </table>
   </div>
   <Rodape />
+
+  <FormularioNovo v-if="exibirFormularioNovo" @adicionar="adicionarItem" />
 </template>
 
 <script>
 import NavbarNovo from "../components/NavbarNovo.vue";
+import FormularioNovo from "../components/FormularioNovo.vue";
 
 export default {
   components: {
     NavbarNovo,
+    FormularioNovo,
   },
   data() {
     return {
@@ -84,7 +88,6 @@ export default {
       this.exibirFormularioNovo = true;
       this.exibirTabela = false;
       this.adicionandoItem = true;
-      this.$router.push("/cadastrarAtividade");
     },
     adicionarItem(novoItem) {
       this.itens.push(novoItem);
